@@ -45,7 +45,6 @@ const BASE_QUERY = `
     )
 `;
 
-
 // OTHERS
 async function getOtherProjects() {
   let conn;
@@ -86,8 +85,7 @@ async function getOtherProjects() {
   }
 }
 
-
-// 🟡 CPAAS
+// CPAAS
 async function getCpaasProjects() {
   let conn;
 
@@ -125,8 +123,7 @@ async function getCpaasProjects() {
   }
 }
 
-
-// 🟣 FLIPKART
+// FLIPKART
 async function getFlipkartProjects() {
   let conn;
 

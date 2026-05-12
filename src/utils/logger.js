@@ -1,9 +1,6 @@
 const fs   = require('fs');
 const path = require('path');
 
-// =====================================
-// LOG DIR — D:\MOU_App\Logs\YYYY-MM-DD\
-// =====================================
 function getLogDir() {
   const today = new Date().toISOString().slice(0, 10); 
   const dir   = path.join(__dirname, '../../Logs', today);
@@ -28,12 +25,12 @@ function writeLog(filename, level, fnName, message) {
 // PUBLIC HELPERS
 // ==============
 function logStart(filename, fnName, detail = '') {
-  const msg = detail ? `START — ${detail}` : 'START';
+  const msg = detail ? `START ï¿½ ${detail}` : 'START';
   writeLog(filename, 'INFO ', fnName, msg);
 }
 
 function logEnd(filename, fnName, detail = '') {
-  const msg = detail ? `END   — ${detail}` : 'END';
+  const msg = detail ? `END   ï¿½ ${detail}` : 'END';
   writeLog(filename, 'INFO ', fnName, msg);
 }
 

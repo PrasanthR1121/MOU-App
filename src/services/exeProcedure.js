@@ -65,7 +65,6 @@ async function executeProcedure(conn, project, fromDate, toDate) {
       `🔍 Executing: ${proc}(${project.RDN}) for ${project.USERNAME}@${project.LOCATION}`
     );
 
-    // REAL ORACLE TIMEOUT
     conn.callTimeout = 30000;
 
     const result = await executeWithRetry(() =>

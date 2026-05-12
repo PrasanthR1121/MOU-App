@@ -13,9 +13,9 @@ const {
   getFlipkartProjects
 } = require('../services/getProjects');
 
-// =========================
-// 📁 LOG SETUP
-// =========================
+// =========
+// LOG SETUP
+// =========
 const LOG_DIR  = path.join(__dirname, '../../Logs');
 const LOG_FILE = path.join(LOG_DIR, 'log.txt');
 
@@ -33,9 +33,9 @@ function logSeparator() {
   fs.appendFileSync(LOG_FILE, line + '\n');
 }
 
-// =========================
-// ⏱️ TIMER HELPER
-// =========================
+// ============
+// TIMER HELPER
+// ============
 function elapsed(startMs) {
   const ms  = Date.now() - startMs;
   const sec = Math.floor(ms / 1000);
@@ -47,9 +47,9 @@ function nowStr() {
   return new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 }
 
-// =========================
-// 🔁 DRY-RUN GROUP
-// =========================
+// =============
+// DRY-RUN GROUP
+// =============
 async function dryRunGroup(label, projects, fromDate, toDate) {
   const groupStart = Date.now();
   logLine(`🚀 [${label}] ${projects.length} rows`);
@@ -92,9 +92,9 @@ async function dryRunGroup(label, projects, fromDate, toDate) {
   return { success, failed, duration: groupTime };
 }
 
-// =========================
-// 🚀 MAIN DRY RUN
-// =========================
+// ============
+// MAIN DRY RUN
+// ============
 async function runDryRun() {
   const jobStart    = Date.now();
   const startTimeStr = nowStr();

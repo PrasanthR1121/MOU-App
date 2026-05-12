@@ -24,7 +24,6 @@ let isRunning = false;
 async function processGroup(label, projects, fromDate, toDate, reportDate) {
   logStart(LOG, `processGroup:${label}`, `${projects.length} rows`);
 
-  // Group by (location, USERNAME) since each project specifies its own DB username
   const byLocationAndUser = {};
 
   for (const p of projects) {
@@ -108,9 +107,9 @@ async function processGroup(label, projects, fromDate, toDate, reportDate) {
   console.log(`${label} Summary: ${success} successful, ${failed} failed`);
 }
 
-// =========================
+// ========
 // MAIN JOB
-// =========================
+// ========
 async function runJob() {
   if (isRunning) {
     console.log("⚠️ Already running...");
@@ -141,7 +140,6 @@ async function runJob() {
 
     console.log("JOB DONE");
     
-    // Generate MOU report table
     await generateMouReport(targetYear, targetMonthNumber);
 
   } catch (err) {
@@ -154,9 +152,9 @@ async function runJob() {
   }
 }
 
-// =========================
+// ===================
 // GENERATE MOU REPORT
-// =========================
+// ===================
 async function generateMouReport(year, month) {
   const fs = require('fs').promises;
   const path = require('path');
@@ -214,7 +212,6 @@ SELECT b.Rdn,
   await fs.writeFile(exportPath, sql);
   console.log(`MOU report SQL saved to: ${exportPath}`);
   
-  // Check if table already exists
   let conn;
   try {
     conn = await getConnection();
@@ -231,7 +228,6 @@ SELECT b.Rdn,
       return;
     }
     
-    // Execute the SQL to create the table
     await conn.execute(sql);
     await conn.commit();
     console.log(`✅ MOU table ${tableName} created successfully`);
@@ -249,9 +245,9 @@ function getMonthName(monthIndex) {
   return months[monthIndex];
 }
 
-// =========================
+// ==============
 // MAIN EXECUTION
-// =========================
+// ==============
 if (require.main === module) {
   runJob().catch(err => {
     console.error('💥 Fatal error:', err.message);

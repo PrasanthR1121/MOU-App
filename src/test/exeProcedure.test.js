@@ -1,16 +1,14 @@
     require('dotenv').config();
 
-const { executeProcedure } = require ('../services/exeProcedure'); // adjust path if needed
+const { executeProcedure } = require ('../services/exeProcedure'); 
 
-// 🔴 Use ONE real project row (hardcoded for testing)
 const sampleProject = {
-  DB_USERNAME: 'cpaas',              // change to real
-  REPORT_LINK: 'Project_rpt_calc_prc', // change to real
-  DBLINK: 'iocltn',                  // change to real
-  RDN: '9961262455'                  // change to real
+  DB_USERNAME: 'cpaas',            
+  REPORT_LINK: 'Project_rpt_calc_prc', 
+  DBLINK: 'iocltn',                  
+  RDN: '9961262455'                 
 };
 
-// sample date format (same as your job)
 const fromDate = '16042026000000';
 const toDate   = '16042026235959';
 

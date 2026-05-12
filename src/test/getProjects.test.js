@@ -4,27 +4,27 @@ const {
   getOtherProjects,
   getCpaasProjects,
   getFlipkartProjects
-} = require('../services/getProjects'); // adjust path if needed
+} = require('../services/getProjects'); 
 
 async function test() {
   try {
     console.log("🧪 TEST STARTED");
 
-    // =========================
-    // 🔵 TEST OTHERS
-    // =========================
+    // ===========
+    // TEST OTHERS
+    // ===========
     const others = await getOtherProjects();
     console.log("🔵 OTHERS SAMPLE:", others.slice(0, 3));
 
-    // =========================
-    // 🟡 TEST CPAAS
-    // =========================
+    // ==========
+    // TEST CPAAS
+    // ==========
     const cpaas = await getCpaasProjects();
     console.log("🟡 CPAAS SAMPLE:", cpaas.slice(0, 3));
 
-    // =========================
-    // 🟣 TEST FLIPKART
-    // =========================
+    // =============
+    // TEST FLIPKART
+    // =============
     const flipkart = await getFlipkartProjects();
     console.log("🟣 FLIPKART SAMPLE:", flipkart.slice(0, 3));
 

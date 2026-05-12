@@ -49,7 +49,6 @@ async function runTests() {
   );
   results.push(localResult);
 
-  // Fetch actual projects to get their DB_USERNAME and CIRCLE mappings
   console.log('\n📋 Fetching projects from database...\n');
   
   let allProjects = [];
@@ -64,7 +63,6 @@ async function runTests() {
     return;
   }
 
-  // Group unique (location, USERNAME) pairs and test each
   const testedPairs = new Set();
   const locationStats = {};
   
@@ -92,7 +90,6 @@ async function runTests() {
     if (testedPairs.has(pair) || !location || !user) continue;
     testedPairs.add(pair);
 
-    // Case-insensitive lookup for TNS mapping
     const remoteTnsKey = Object.keys(config.remoteTns).find(key => key.toLowerCase() === location.toLowerCase());
     const remoteTns = remoteTnsKey ? config.remoteTns[remoteTnsKey] : null;
     
